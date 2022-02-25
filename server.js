@@ -7,7 +7,6 @@ const port = process.env.PORT || 5000;
 app.get('/fromRoman/*', async (req, res) => {
   try {
     const urlElements = req.url.split('/');
-    console.log(urlElements);
     const element = urlElements[urlElements.length - 1];
     if (!checkRomanString(element)) {
       throw new Error(
@@ -15,7 +14,6 @@ app.get('/fromRoman/*', async (req, res) => {
       );
     }
     const result = fromRoman(element);
-    console.log(result);
     res.send(JSON.stringify(result));
   } catch (err) {
     res.status(400).send(err.message);
