@@ -2,7 +2,7 @@ const express = require('express');
 const { checkInteger, checkRomanString } = require('./helpers/checkFormat');
 const { fromInteger, fromRoman } = require('./helpers/romanAlgorithm');
 const app = express();
-const port = 5000;
+const port = process.env.PORT || 5000;
 
 app.get('/fromRoman/*', async (req, res) => {
   try {
